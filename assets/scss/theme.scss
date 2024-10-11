@@ -1,0 +1,58 @@
+h1 {
+    font-family: "SpaceMono";
+    color: $color--red;
+}
+
+/*Header*/
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    box-shadow: 0 4px 4px 0 rgba($color--black, 0.1);
+}
+nav{
+    margin-right: 100px;
+}
+
+.logo{
+    margin-left: 100px;
+    & img{
+        max-width: 250px;
+        height: auto;
+    }
+}
+
+/*Menu*/
+
+
+.menu {
+    display: flex;
+    gap: 40px;
+    & li {
+        list-style: none;
+        @include flex-center;
+        //@extend %flex-center;
+    }
+    & a {
+        color: $color--black;
+        text-decoration: none;
+        font-family: $font--header;
+        font-weight: 400;
+        font-style: normal;
+        text-transform: uppercase;
+        &:hover{
+            font-weight: 700;
+        }
+    }
+}
+
+/*Footer*/
+
+footer {
+    @include flex-center;
+    border-top: 1px $color--black solid;
+    width: 100%;
+
+}

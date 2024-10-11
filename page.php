@@ -12,6 +12,12 @@
 
 get_header();
 
+// temporaire : situer la page
+?>
+<h1>bienvenue sur motaphoto page</h1>
+<?php
+
+
 /* Start the Loop */
 while (have_posts()) :
 	the_post();
@@ -24,3 +30,4 @@ while (have_posts()) :
 endwhile; // End of the loop.
 
 get_footer();
+?>
