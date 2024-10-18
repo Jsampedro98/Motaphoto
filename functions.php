@@ -11,6 +11,15 @@ function motaphoto_enqueue_styles()
 }
 add_action('wp_enqueue_scripts', 'motaphoto_enqueue_styles');
 
+
+//  Chargement du script JS de la modale
+function motaphoto_enqueue_scripts()
+{
+    wp_enqueue_script('script modale', get_template_directory_uri() . '/assets/js/modale.js');
+}
+
+add_action('wp_enqueue_scripts', 'motaphoto_enqueue_scripts');
+
 // Ajout de la gestion de menu dans le dashboard  wordpress
 
 function register_custom_menu()
@@ -21,6 +30,7 @@ function register_custom_menu()
     ));
 }
 add_action('init', 'register_custom_menu');
+
 
 
 // Ajout de la prise en charge du logo

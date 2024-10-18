@@ -38,5 +38,8 @@
                 'menu_class' => 'menu',
             ));
             ?>
+            <div class="modale">
+                <?php get_template_part('/templates_part/modale'); ?>
+            </div>
         </nav>
     </header>

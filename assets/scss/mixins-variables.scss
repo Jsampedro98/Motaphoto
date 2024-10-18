@@ -1,0 +1,48 @@
+//colors
+$color--white:#ffffff;  // form
+$color--black:#000000;  //text
+$color--deepgrey:#313144;
+$color--grey:#c4c4c4; //bordure field form
+$color--cleargrey:#d8d8d8;
+$color--palegrey:#e5e5e5;
+
+$color--red:#e00000;  //button selected
+$color--clearred:#fe5858;  //button pressing
+$color--palered:#ffd6d6;  //button hover
+
+
+//fonts
+$font--header: "SpaceMono", sans-serif;
+$font--body: "Poppins", sans-serif;
+
+$font-size-S: 0.72rem; /*10px */
+$font-size-M: 1rem; /*14px */
+$font-size-H3: 1.28rem; /*18px */
+$font-size-H2m: 3.28rem; /*46px */
+$font-size-H2: 4.71rem; /*66px */
+$font-size-H1: 6.86rem; /*96px */
+$font-size-H1m: 1.97rem; /*27.6px */
+
+
+@mixin Position($position, $top, $right, $bottom, $left){
+    position: $position;
+    top: $top;
+    right: $right;
+    bottom: $bottom;
+    left: $left;
+}
+
+// mixin
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+// placeholder
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
