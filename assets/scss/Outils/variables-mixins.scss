@@ -1,0 +1,136 @@
+/***************VARIABLES***************/
+//colors
+$color--white:#ffffff;  // form
+$color--black:#000000;  //text
+$color--deepgrey:#313144;
+$color--grey:#c4c4c4; //bordure field form
+$color--cleargrey:#d8d8d8;
+$color--palegrey:#e5e5e5;
+
+$color--primary:#e00000;  //button selected
+$color--clearprimary:#fe5858;  //button pressing
+$color--paleprimary:#ffd6d6;  //button hover
+
+
+//fonts
+$font--heading: "SpaceMono", sans-serif;
+$font--body: "Poppins", sans-serif;
+
+$fontSize__XS: 0.72rem; /*10px */
+$fontSize__S: 0.86rem; /*12px */
+$fontSize__M: 1rem; /*14px */
+$fontSize__H3: 1.28rem; /*18px */
+
+$fontSize__H2--m: 1.71rem; /*24px */
+$fontSize__H2: 2.57rem; /*36px */
+$fontSize__H2info--m: 3.28rem; /*46px */
+$fontSize__H2info: 4.71rem; /*66px */
+
+$fontSize__H1--m: 1.97rem; /*27.6px */
+$fontSize__H1: 3.28rem; /*46px */
+$fontSize__H1--hero: 6.86rem; /*96px */
+
+// breakpoints
+$breakpoint__desktop: 1192px;
+$breakpoint__laptop: 1040px;
+$breakpoint__tablet: 768px;
+$breakpoint__large_phone: 576px;
+$breakpoint__small_phone: 480px;
+
+//dimensions
+$laptopXedge: 1440px;
+$laptopXcontent: 1148px;
+
+$margeX: 146px;
+$margeX--m: 40px;
+$headerY: 56px;
+$gapL:30px;//$gap30
+$gapM:20px;//$gap20
+$gapS:10px;//$gap10
+
+$current_width_blockPhoto: 564px;
+$current_height_blockPhoto: 495px;
+
+//z-index-
+$zIndex__frontPage__h1hero: 1;
+$zIndex__frontFilters_dropdown__select: 3;
+$zIndex__scroll-arrows: 5;
+
+$zIndex__infosPhoto__arrowsNav: 12;
+
+$zIndex__lightbox: 20;
+$zIndex__lightbox__arrows: 24;//temp
+$zIndex__lightbox__img: 23;
+$zIndex__lightbox__arrows--m: 24;
+$zIndex__lightbox__btnClose: 25;
+
+$zIndex__modale: 30;
+$zIndex__modale__overlay: 31;
+$zIndex__modale__btnClose: 35;
+
+$zIndex__NavMobileMenu: 50;
+
+// placeholder 
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%link {
+    color: $color--black;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover{
+        font-weight: 700;
+    }
+}
+
+//----------------------- mixin
+
+@mixin Position($position, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+    position: $position;
+    @if $top != auto {
+        top: $top;
+    }
+    @if $right != auto {
+        right: $right;
+    }
+    @if $bottom != auto {
+        bottom: $bottom;
+    }
+    @if $left != auto {
+        left: $left;
+    }
+}
+
+@mixin submit ($width){
+    background: $color--grey;       
+    color: $color--black;             
+    padding: 15px 0;   
+    height: 50px;    
+    font-size: $fontSize__XS;  
+    font-family: $font--heading; 
+    border: 0;               
+    border-radius: 3px;   
+    transition: .3s ease-in-out;
+    width: $width;
+    &:hover{
+        background: $color--black;
+        color: $color--white;     
+    }
+}
+
+@mixin circle-icon ($diameter, $BGcolor){
+    background: $BGcolor; 
+    color: $color--white;                
+    height: $diameter;    
+    width: $diameter;
+    text-align: center;
+    border: 0;               
+    border-radius: calc($diameter/2);   
+    transition: .3s ease-in-out;
+}
+
+
+

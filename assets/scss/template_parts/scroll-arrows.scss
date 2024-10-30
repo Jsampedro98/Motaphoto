@@ -1,0 +1,32 @@
+#scroll-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    z-index: $zIndex__scroll-arrows;
+}
+
+.scroll-arrow {    
+    margin: 2px;
+    cursor: pointer;   
+    @include circle-icon(25px, $color--deepgrey);
+    opacity: 0;
+    &.visible{
+        opacity: 1;
+    }
+    & i{ 
+        color: $color--white;    
+        font-size: $fontSize__M;
+        &.fa-sort-up{
+            padding-top: 8px;
+        }
+    }   
+}
+
+@media (max-width: $breakpoint__tablet) {
+    #scroll-container {
+        display: none;
+    }
+}

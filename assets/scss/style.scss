@@ -1,17 +1,30 @@
 /*
-Theme Name: Motaphoto
-Theme URI: https://github.com/jsampedro98/Motaphoto
-Author: jsampedro98
-Author URI: https://github.com/jsampedro98
-Description: Thème personnalisé du site Motaphoto
+Theme Name: motaphoto
+Theme URI: https://github.com/mucandev/motaphoto
+Author: mucandev
+Author URI: https://github.com/mucandev
+Description: Thème personnalisé du site de Nathalie Mota photographe
 Version: 1.0.0
 Tags: Nathalie Mota, photographie, catalogue photo, lightbox
-Text Domain: Motaphoto
+Text Domain: motaphoto
 */
 
-/* Import */
 
-@import 'fonts';
-@import 'modale';
+
+// Import  variables, animations, mixins , @font'face
+@import 'outils/fonts';
+@import 'outils/variables-mixins';
+@import 'outils/animations-mixins';
+
 @import 'theme';
-@import 'mixins-variables';
+@import 'front-page';
+
+// Import template_part
+@import 'template_parts/filtre-font.scss';
+@import 'template_parts/scroll-arrows';
+@import 'template_parts/modale';
+@import 'template_parts/lightbox.scss';
+@import 'template_parts/bloc-photo';
+
+// Import single-post
+@import 'single-photo;

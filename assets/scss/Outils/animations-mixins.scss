@@ -1,0 +1,103 @@
+// styles des animations
+
+
+//******************MODALE style SCSS & script JS
+$fade_in_time: 150ms;
+
+@mixin slideYfade($animationName, $yValue, $animation_time) {
+    @keyframes #{$animationName} {
+        from {
+            opacity: 0;
+            transform: translateY(#{$yValue});
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    animation: #{$animationName} ease $animation_time;
+}
+
+
+@mixin slideXfade($animationName, $xValue) {
+    @keyframes #{$animationName} {
+        from {
+            opacity: 0;
+            transform: translateX(#{$xValue});
+            -webkit-transform: translateX(#{$xValue});
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+            -webkit-transform: translateX(0);
+        }
+    }
+    animation: #{$animationName} ease-in-out 500ms;
+    -webkit-animation: #{$animationName} ease-in-out 500ms; // Pour compatibilité WebKit
+
+}
+
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes hide {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+//response wp7
+$shake-intensity: 5%;
+
+@keyframes ShakeX {
+    25% {
+        transform: translateX(#{$shake-intensity});
+    }
+    75%{
+        transform: translateX($shake-intensity * -1);
+    }
+}
+
+//******************mobile menu style SCSS & script JS
+.fadeOut {
+    animation: hide ease 500ms;
+}
+
+.slideRight{
+    //mixin marche à l'envers
+    // @include slideXfade('slideInRight', 200px); 
+    animation: slideRight ease-in-out 500ms;
+}
+
+@keyframes slideRight{
+    from {
+        opacity: 0;
+        transform: translateX(200px);
+        -webkit-transform: translateX(200px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+    }
+}
+
+// filtres front-page & script JS
+.apparition {
+    @include slideYfade('slideXfadeDown', (-40px), 500ms);    
+}
+
+.rotation{
+    transform: rotate(180deg) ;
+    transition: transform 0.5s ease-in-out;
+}
+

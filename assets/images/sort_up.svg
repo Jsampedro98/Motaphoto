@@ -1,0 +1,207 @@
+/***************CUSTOM POST single-photographies***************/
+
+//partie 1
+.photo-choice {
+    // height: calc(100vh - $headerY);
+    width: 100%;
+}
+.infos {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between; 
+    gap: $gapM;
+    & > div{
+        width: calc(50% - ($gapM/2));
+    }
+    &-photo {        
+        height: auto;
+        & img {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    border-bottom: 2px solid $color--black;
+        & > h2 {
+            font-size: $fontSize__H2info;
+            max-width: 80%;
+            line-height: 68px;
+            margin-bottom: 20px;
+        }
+    }
+
+.interactions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    justify-content: space-between;
+    gap: $gapM;
+    & > div {
+        width: calc(50% - ($gapM/2));
+    }
+    &-contact {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 35px;
+        margin-bottom: 25px;
+    }
+}
+
+.btn-contact {
+    @include submit(270px);
+}
+.photo-navigation {
+    display: flex;
+    align-items: end;
+    justify-content: end;
+    flex-direction: column-reverse;
+}
+
+.arrow {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin: 10px 0;
+    width: 80px;
+    &-left, &-right {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        z-index: $zIndex__infosPhoto__arrowsNav; 
+    } 
+    &-left:hover ~  .thumbnail-left,
+    &-right:hover ~ .thumbnail-right {
+        opacity: 1;
+    }
+}
+
+.thumbnail-left, .thumbnail-right {    
+    width: 80px;
+    height: 70px;
+    position: absolute;
+    display:flex;
+    align-items: center;
+    justify-content: center;   
+    margin-bottom: 25px;    
+    overflow: hidden;
+    opacity: 0; 
+    transition: opacity 0.3s ease;  
+    & > img {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+//partie  2
+.siblings {
+    border-top: 1px solid $color--black;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    position: relative;
+    width: 100%;
+        &-items {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        gap: $gapM;
+        margin: 20px auto;
+        flex-wrap: wrap;
+    }
+}
+
+@media screen and (max-width: #{$breakpoint__laptop}) {
+    .description {
+        & > h2 {
+            font-size: $fontSize__H2info--m;
+        }
+    }
+}   
+
+// @media screen and (max-width: var(--breakpoint-large-phone)){
+@media screen and (max-width: #{$breakpoint__tablet}) {    
+    .photo-choice{
+        width: 70%;;
+    }
+    .infos {
+        flex-direction: column-reverse;
+        gap: 0;
+        & > div{
+            width: 100%;
+        }
+    }
+    .description {
+        border-bottom: none;
+        width: 100%;
+        & > h2 {
+            margin-bottom: 0;
+        }
+    }
+
+    .interactions {
+        flex-direction: column;
+        & > div {
+            width: 100%;
+        }
+        &-contact {
+            flex-direction: column;
+            position: relative;
+            &::before{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -21%; 
+                right: +21%;
+                width: calc(100% + 42%); 
+                border-top: 1px solid $color--black;
+            }
+        }
+    }
+    .photo-navigation {
+        display: none;
+    }
+
+    .siblings {
+        border-top: none;
+        padding-top: 10px;
+        padding-bottom: 0px;
+        width: 100%;
+        & h3{
+            text-align: center;
+        }
+        &-items {
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 0;
+        }
+        &::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -8%; 
+            right: 8%;
+            width: calc(100% + 16%); 
+            border-top: 1px solid $color--black;
+        }
+    }
+
+}

@@ -1,0 +1,194 @@
+/***************TEMPLATE _modale***************/
+
+/* Modale cachée par défaut */
+.modale {
+    display: none;
+    &.show {
+    display: flex; 
+    animation: show 0.5s forwards;
+    z-index: $zIndex__modale;
+    }
+    &.hide {
+    animation: hide 0.5s forwards;
+    }
+}
+
+#contact-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color--black, 0.8);
+    @include Position(fixed, 0, 0, 0, 0);
+    @extend %flex-center;
+    z-index: $zIndex__modale__overlay;
+}
+
+.close-btn {
+    @include Position(absolute, 42px, -20px, auto, auto);
+    @extend %flex-center;
+    @include circle-icon (36px, $color--clearprimary);
+    cursor: pointer;
+    z-index: $zIndex__modale__btnClose;
+    & img{
+        width: 80%;
+    }
+    &:hover{            
+        transform: rotate(90deg);
+        transition: transform 0.2s ease-in-out;
+    }
+}
+
+.title-contact {
+    overflow: hidden;
+    width: 100%;
+    &-top  {
+        margin: 0;
+        @include Position(relative, auto, 140px, auto, auto);  
+        @include slideXfade('slideInLeft', 100px); 
+        > img{
+            width:140%;
+        }
+    }
+    &-bottom {
+        margin: 0;
+        padding-bottom: 20px;
+        @include Position(relative, auto, 100px, auto, auto);
+        @include slideXfade('slideInRight', -100px);  
+        > img{
+            width:140%;
+        }
+    }
+}
+
+.contact-popup {
+    width: 596px;
+    max-height: 770px;
+    border: 5px $color--black solid;
+    background: $color--white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    @include Position(relative, 0, 0, 5%, 0);
+    padding-top: 10px;
+}
+
+.contact-form{
+    width: 260px;
+    margin: 0;
+    padding: 0;
+}
+
+.wpcf7 {
+    margin: 0 ;
+    & label{
+        font-size: $fontSize__S;      
+        text-transform: uppercase;
+        font-family: $font--body;
+    }
+    &-form-control{
+        border-radius: 8px;
+        border: 1px $color--grey solid;
+        height: 36px;
+        width: 100%;
+        margin-top: 4px;
+        margin-bottom: 8px;
+    }
+    &-textarea{
+        height: 210px; 
+        margin-bottom: 4px;
+        resize:none;
+    }
+    &-submit{
+        @include submit(100%);
+    }
+
+    //messages field invalid
+    &-not-valid-tip{
+        color: $color--clearprimary;  
+        @include Position(absolute, auto, auto, 37px, 70px);   
+        font-size: $fontSize__XS; 
+        text-transform: lowercase;
+        @include slideYfade('fadeIndbUp', 200px,200ms);
+        & .popup-message {
+            bottom: 225px;
+        }    
+    }
+    &-response-output{
+        padding: 20px !important;
+        border-radius: 90px !important ;
+        border: none !important;
+        text-align: center;
+        background-color: $color--paleprimary;
+        @include Position(absolute, auto, auto, 40px, -40px);  
+        max-width: 105px;
+        aspect-ratio: 1/1;
+        font-size: $fontSize__XS;      
+        font-family: $font--body;    
+        & form.invalid{
+            background-color: $color--clearprimary !important;
+        }
+    }
+}
+ //messages field invalid textarea
+.popup-message .wpcf7-not-valid-tip {
+    bottom: 225px;
+}
+
+.popup-submit > p{
+    margin: 0;
+}
+
+.wpcf7 form.invalid .wpcf7-response-output,
+.wpcf7 form.spam .wpcf7-response-output {
+    color: $color--white;
+    background-color: $color--clearprimary !important;
+    animation: ShakeX 200ms ease;
+    animation-iteration-count: 2;
+}
+
+.wpcf7 form.sent .wpcf7-response-output {
+    max-width: 80px;
+    animation: show 0.25s forwards;
+}
+
+// @media screen and (max-width: var(--breakpoint-large-phone)){
+@media screen and (max-width: #{$breakpoint__large_phone}) {
+    .close-btn { 
+        @include circle-icon (24px, $color--clearprimary);  
+        top: -15px;
+        right: 15px;
+    }
+    
+    .title-contact {
+        & p {
+            font-size: 3rem;
+            line-height: 2.5rem;            
+        }        
+    }
+
+    .contact-popup {
+        top: -30px;
+    }
+#wpcf7-f29-o1 p{
+            margin: 8px auto;
+        }    
+    .wpcf7 {
+        &-form-control{
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        &-textarea{
+            height: 120px; 
+        }
+        &-response-output{
+            padding: 15px !important;
+            border-radius: 70px !important ;
+            @include Position(absolute, auto, auto, -120px, 30px);           
+        }
+        &-not-valid-tip{
+            bottom: 32px;
+        }  
+    }
+    .popup-message .wpcf7-not-valid-tip {
+        bottom: 128px;
+    }
+}

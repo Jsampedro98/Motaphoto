@@ -1,0 +1,86 @@
+/***************THEME***************/
+
+.hero {
+    max-width: 1440px;
+    width: 100%;
+    @extend %flex-center;
+    position: relative;
+    & h1{
+        @extend %flex-center;
+        position: absolute;
+        z-index: $zIndex__frontPage__h1hero;
+    }
+    &-banner{
+        width: 100%;
+        max-width: 1440px;
+        position: relative;
+        & > img{
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+.filters {
+    width: 100%;
+    column-gap: $gapM;
+    row-gap: $gapS;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;    
+    margin-top: 60px;
+    margin-bottom: 25px;
+
+    &-block {
+        width: calc(50% - ($gapM/2));
+        display: flex;
+        column-gap: $gapM;
+        row-gap: $gapS;
+        position: relative;  
+        > menu { 
+            width: calc(50% - ($gapM/2));        
+        }
+    }
+
+    & #tax{
+        justify-content: space-between;
+    }
+    & #date{
+        justify-content: end;
+    }
+}
+
+#total-photos-count{
+    opacity: 0;
+    position: absolute;
+}
+.bouton-front{
+    @extend %flex-center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.btn-chargerPlus {
+    @include submit(270px);
+}
+
+// @media screen and (max-width: var(--breakpoint-laptop)){
+    @media screen and (max-width: #{$breakpoint__desktop}) {
+        .filters {
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 25px;
+            &-block {
+                width: $current_width_blockPhoto;
+                flex-direction: column-reverse;
+                align-items: center;
+                > menu {
+                    width: 70%;
+                    min-width: 250px;
+                }
+            }
+        }
+        .bouton-front{
+            margin-top: 60px;
+        }
+    }
